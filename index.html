@@ -10,21 +10,34 @@
 
 	<div class="container">
 		<div class="inner">
-			<div class="item">
+			<div class="item" id="item">
 				<p>Тестовое сообщение</p>
 				<a href="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true">
-					<img src="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true" alt="Spotify Profile">
+					<img id="profileImg" src="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true" alt="Spotify Profile">
 				</a>
 				<a href="https://open.spotify.com/user/21f6yy7o4zdnzdffahkzebd6i">
-					<img src="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&unique=true&count=10" alt="Spotify Recently Played">
+					<img id="recentlyPlayedImg" src="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&unique=true&count=10" alt="Spotify Recently Played">
 				</a>
 				<button class="btn" id="btn">Отправить</button>
 			</div>
 		</div>
 	</div>
 
-
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
-	<script src="app.js"></script>
+	<script>
+		// Функция для обновления содержимого блока
+		function updateContent() {
+			// Обновление изображения профиля
+			const profileImg = document.getElementById('profileImg');
+			profileImg.src = "https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true&" + new Date().getTime(); // добавляем временной штамп для предотвращения кеширования
+
+			// Обновление недавно проигранных треков
+			const recentlyPlayedImg = document.getElementById('recentlyPlayedImg');
+			recentlyPlayedImg.src = "https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&unique=true&count=10&" + new Date().getTime(); // добавляем временной штамп для предотвращения кеширования
+		}
+
+		// Устанавливаем интервал на 15 секунд (15000 миллисекунд)
+		setInterval(updateContent, 15000);
+	</script>
 </body>
 </html>
