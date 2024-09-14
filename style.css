@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-	max-width: 390px;
+	max-width: 500px;
 }
 
 .inner {
@@ -21,20 +21,48 @@ body {
 	border: 10px black;
 	border-radius: 1%;
 	background-color: whitesmoke;
+	max-width: 300px;
+}
+
+.input-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#linkInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+#linkInput:focus {
+    border-color: rgb(24, 248, 99);
+    outline: none;
 }
 
 .btn {
-	display: inline-block;
-	padding: 10px 20px;
-	border: none;
-	background: rgb(248, 168, 24);
-	border-radius: 10px;
-	color: wheat;
-	text-transform: uppercase;
-	font-weight: 700;
-	transition: background .2s linear;
+    padding: 10px 15px;
+    border: none;
+    background: rgb(24, 248, 99);
+    border-radius: 8px;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex-shrink: 0; /* предотвращает сжатие кнопки */
 }
 
 .btn:hover {
-	background: whitesmoke;
+    background: whitesmoke;
+}
+
+.btn:active {
+    background: #cccccc;
 }
