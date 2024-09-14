@@ -7,7 +7,7 @@ tg.expand();
 // Установка цвета текста кнопки MainButton
 tg.MainButton.textColor = "#FFFFFF";  // Белый текст
 // Установка цвета фона кнопки MainButton
-tg.MainButton.color = "#FF00FF";  // Фиолетовый фон
+tg.MainButton.color = '#2cab37';
 
 // Получаем элементы HTML по их идентификаторам
 let sendLinkBtn = document.getElementById("sendLinkBtn");
@@ -34,12 +34,12 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
 });
 
 // Пример кнопки, которая также может показать MainButton
-let btn = document.getElementById("btn");
-btn.addEventListener("click", function() {
-    // Устанавливаем новый текст для MainButton
-    tg.MainButton.setText("Сообщение отправлено!");
-    // Показываем MainButton
-    tg.MainButton.show();
-    // Отправляем тестовые данные
-    tg.sendData("sendTestMessage");
-});
+//let btn = document.getElementById("btn");
+//btn.addEventListener("click", function() {
+//   // Устанавливаем новый текст для MainButton
+//    tg.MainButton.setText("Сообщение отправлено!");
+//   // Показываем MainButton
+//    tg.MainButton.show();
+//    // Отправляем тестовые данные
+//    tg.sendData("sendTestMessage");
+//});
