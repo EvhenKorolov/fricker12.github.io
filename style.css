@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-	background: linear-gradient(135deg, #0c0c0ce5, #080a08ee); /* Градиентный фон */
+	background: linear-gradient(135deg, rgb(33, 33, 33),rgb(33, 33, 33)); /* Градиентный фон */
 	border-radius: 15px;
 	animation: fadeIn 1s ease-in-out; /* Плавная анимация появления */
 	text-align: center; /* Центрирование содержимого */
