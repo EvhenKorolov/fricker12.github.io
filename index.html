@@ -11,14 +11,20 @@
 	<div class="container">
 		<div class="inner">
 			<div class="item" id="item">
-				<p>Тестовое сообщение</p>
 				<a href="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true">
 					<img id="profileImg" src="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true" alt="Spotify Profile">
 				</a>
-				<a href="https://open.spotify.com/user/21f6yy7o4zdnzdffahkzebd6i">
-					<img id="recentlyPlayedImg" src="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&unique=true&count=10" alt="Spotify Recently Played">
-				</a>
-				<button class="btn" id="btn">Отправить</button>
+
+				<!-- Спойлер с недавно проигранными треками -->
+				<details id="recentlyPlayedDetails">
+					<summary>Recently Played</summary>
+					<a href="https://open.spotify.com/user/21f6yy7o4zdnzdffahkzebd6i">
+						<img id="recentlyPlayedImg" src="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&unique=true&count=10" alt="Spotify Recently Played">
+					</a>
+				</details>
+
+				<!-- Кнопка для отображения спойлера -->
+				<button class="btn" id="btn">Показать Recently Played</button>
 			</div>
 		</div>
 	</div>
@@ -29,15 +35,27 @@
 		function updateContent() {
 			// Обновление изображения профиля
 			const profileImg = document.getElementById('profileImg');
-			profileImg.src = "https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true&" + new Date().getTime(); // добавляем временной штамп для предотвращения кеширования
+			profileImg.src = "https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true&" + new Date().getTime();
 
 			// Обновление недавно проигранных треков
 			const recentlyPlayedImg = document.getElementById('recentlyPlayedImg');
-			recentlyPlayedImg.src = "https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&unique=true&count=10&" + new Date().getTime(); // добавляем временной штамп для предотвращения кеширования
+			recentlyPlayedImg.src = "https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&unique=true&count=10&" + new Date().getTime();
 		}
 
 		// Устанавливаем интервал на 15 секунд (15000 миллисекунд)
 		setInterval(updateContent, 15000);
+
+		// Добавляем обработчик для кнопки показа недавно проигранных треков
+		document.getElementById('btn').addEventListener('click', function() {
+			const details = document.getElementById('recentlyPlayedDetails');
+			if (!details.open) {
+				details.open = true; // Открыть спойлер
+				this.textContent = 'Скрыть Recently Played'; // Изменить текст кнопки
+			} else {
+				details.open = false; // Закрыть спойлер
+				this.textContent = 'Показать Recently Played'; // Изменить текст кнопки
+			}
+		});
 	</script>
 </body>
 </html>
