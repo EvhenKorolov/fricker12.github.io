@@ -11,7 +11,7 @@ body {
 	max-width: 500px;
 	margin: 5px auto; /* Центрирование */
 	padding: 1px;
-	background: linear-gradient(135deg, #53b14f, #000000ef); /* Градиентный фон */
+	background: linear-gradient(135deg, #68df64, #000000ee); /* Градиентный фон */
 	border-radius: 15px;
 	animation: fadeIn 1s ease-in-out; /* Плавная анимация появления */
 	text-align: center; /* Центрирование содержимого */
