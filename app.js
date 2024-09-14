@@ -15,27 +15,16 @@ tg.MainButton.show();
 let sendLinkBtn = document.getElementById("sendLinkBtn");
 let linkInput = document.getElementById("linkInput");
 
-// Добавляем событие клика для кнопки отправки
-sendLinkBtn.addEventListener("click", function() {
-    // Проверка на пустую ссылку
-    const link = linkInput.value.trim();
-    if (link === '') {
-        alert('Введите ссылку');
-        return;
-    }
-
-    // Прямо показываем кнопку перед проверкой видимости
-    tg.MainButton.show();
-
-    // Проверяем видимость MainButton
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.setText("Отправить");
-        tg.MainButton.show();
-    }
+sendLinkBtn.addEventListener("click", function(){
+    const link = linkInput.value
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Отправить");
+		tg.MainButton.show();
+	}
 });
-
 // Обработчик события нажатия на MainButton
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     const link = linkInput.value.trim();
