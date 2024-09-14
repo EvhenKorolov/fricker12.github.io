@@ -9,10 +9,14 @@
 <body>
 
 	<div class="container">
-		<h2 class="title">Админ сейчас слушает</h2>
-		<a href="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true">
-			<img id="profileImg" src="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true" alt="Spotify Profile">
+		<h2 class="title">Адмін зараз слухає на Spotify</h2>
+		<a href="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&redirect=true][https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover">
+			<img id="profileImg" src="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&redirect=true][https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover" alt="Spotify Profile">
 		</a>
+		<details>
+			<summary class="title">Останнє прослухане</summary>
+			<a href="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i"><img id="recentlyPlayedImg" src="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&width=500" alt="Spotify recently played"></a>
+		</details>
 	</div>
 	<div class="inner">
 		<div class="item" id="item">
@@ -34,7 +38,10 @@
 		function updateContent() {
 			// Обновление изображения профиля
 			const profileImg = document.getElementById('profileImg');
-			profileImg.src = "https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true&" + new Date().getTime();
+			profileImg.src = "https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&redirect=true][https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover&" + new Date().getTime();
+
+			const recentlyPlayedImg = document.getElementById('recentlyPlayedImg');
+			recentlyPlayedImg.src = "https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&width=500&" + new Date().getTime();
 		}
 
 		// Устанавливаем интервал на 15 секунд (15000 миллисекунд)
