@@ -1,5 +1,4 @@
 let tg = window.Telegram.WebApp;
-tg.showAlert(`Привіт, @${tg.user.username}.`);
 
 // Развернуть приложение на полный экран
 tg.expand();
@@ -7,6 +6,10 @@ tg.expand();
 // Установка цвета текста и фона кнопки MainButton
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = '#2cab37';
+
+// Устанавливаем текст кнопки и показываем ее сразу, чтобы убедиться, что она работает
+tg.MainButton.setText("Отправить");
+tg.MainButton.show();
 
 // Получаем элементы HTML
 let sendLinkBtn = document.getElementById("sendLinkBtn");
@@ -20,6 +23,9 @@ sendLinkBtn.addEventListener("click", function() {
         alert('Введите ссылку');
         return;
     }
+
+    // Прямо показываем кнопку перед проверкой видимости
+    tg.MainButton.show();
 
     // Проверяем видимость MainButton
     if (tg.MainButton.isVisible) {
@@ -43,6 +49,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
     }
 });
 
+// Обработчик получения данных от бота
 Telegram.WebApp.onEvent("webAppReceiveData", function(data) {
     const resultBlock = document.getElementById("resultBlock");
 
