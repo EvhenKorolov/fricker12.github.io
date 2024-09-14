@@ -8,27 +8,26 @@ body {
 }
 
 .container {
-	max-width: 500px;
-	margin: 5px auto; /* Центрирование */
-	padding: 1px;
 	background: linear-gradient(135deg, #68df64, #000000ee); /* Градиентный фон */
 	border-radius: 15px;
 	animation: fadeIn 1s ease-in-out; /* Плавная анимация появления */
 	text-align: center; /* Центрирование содержимого */
+	max-width: 100%; /* Ограничиваем ширину контейнера на 100% относительно родителя */
+	width: 500px; /* Явно устанавливаем ширину контейнера */
+	margin: 0 auto; /* Центрирование контейнера */
+	padding: 10px; /* Отступы для визуальной эстетики */
+	box-sizing: border-box; /* Учитываем отступы и границы в ширине */
 }
 
 details {
-	max-width: 100%; /* Устанавливаем максимальную ширину на уровне контейнера */
-	overflow: hidden; /* Предотвращаем выход за пределы */
-}
-
-details summary {
-	cursor: pointer; /* Устанавливаем курсор для удобства */
+	max-width: 100%; /* Устанавливаем, чтобы <details> подстраивался под родительский контейнер */
+	overflow: hidden; /* Обрезаем содержимое, выходящее за пределы */
+	box-sizing: border-box; /* Учитываем отступы и границы */
 }
 
 details img {
-	max-width: 100%; /* Ограничиваем ширину изображения до 100% */
-	height: auto; /* Автоматическая высота для сохранения пропорций */
+	width: 100%; /* Ограничиваем изображение внутри details по ширине контейнера */
+	height: auto; /* Сохраняем пропорции */
 }
 
 /* Заголовок для надписи */
@@ -55,7 +54,8 @@ details img {
 }
 
 .inner {
-	max-width: 100%;
+	width: 100%; /* Ширина inner для полного использования доступного пространства */
+	max-width: 500px; /* Ограничиваем максимальную ширину */
 	margin: 0 auto; /* Центрирование */
 	display: grid;
 	grid-template-columns: 1fr;
@@ -63,7 +63,9 @@ details img {
 	background-color: white; /* Фон inner */
 	padding: 20px; /* Внутренний отступ */
 	border-radius: 8px; /* Закругленные углы */
+	box-sizing: border-box; /* Учитываем отступы и границы */
 }
+
 
 .item {
 	text-align: center;
