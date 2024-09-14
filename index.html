@@ -18,7 +18,7 @@
 		<div class="item" id="item">
 			<div class="input-section">
 				<input type="text" id="linkInput" placeholder="Введите ссылку">
-				<button class="btn" id="sendLinkBtn">Отправить</button>
+				<button class="btn" id="sendLinkBtn">Обработать</button>
 			</div>
 			<!-- Блок для отображения результата -->
 			<div id="resultBlock" style="margin-top: 20px;">
@@ -39,7 +39,6 @@
 
 		// Устанавливаем интервал на 15 секунд (15000 миллисекунд)
 		setInterval(updateContent, 15000);
-
 		// Обработчик для отправки ссылки
 		document.getElementById('sendLinkBtn').addEventListener('click', function() {
 			const linkInput = document.getElementById('linkInput').value;
@@ -49,28 +48,6 @@
 				alert('Введите ссылку');
 				return;
 			}
-
-			// Отправка ссылки через Telegram Web App
-			//Telegram.WebApp.sendData(linkInput);
-
-			// Имитация ответа бота для отображения результата
-			// Предположим, что бот вернул изображение или ссылку
-			setTimeout(function() {
-				const resultBlock = document.getElementById('resultBlock');
-
-				// Пример обработки: если ссылка ведет на изображение
-				if (linkInput.endsWith('.jpg') || linkInput.endsWith('.png') || linkInput.endsWith('.gif')) {
-					resultBlock.innerHTML = `<img src="${linkInput}" alt="Image" style="max-width: 100%;">`;
-				}
-				// Пример обработки: если ссылка ведет на видео
-				else if (linkInput.endsWith('.mp4')) {
-					resultBlock.innerHTML = `<video controls style="max-width: 100%;"><source src="${linkInput}" type="video/mp4">Ваш браузер не поддерживает видео.</video>`;
-				}
-				// Пример обработки: если это веб-ссылка
-				else {
-					resultBlock.innerHTML = `<a href="${linkInput}" target="_blank">${linkInput}</a>`;
-				}
-			}, 1000); // имитация задержки на ответ от бота
 		});
 	</script>
 </body>
