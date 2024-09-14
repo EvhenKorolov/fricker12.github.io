@@ -53,12 +53,14 @@ details img {
 	}
 }
 
+
 .inner {
 	width: 100%; /* Ширина inner для полного использования доступного пространства */
 	max-width: 500px; /* Ограничиваем максимальную ширину */
 	margin: 0 auto; /* Центрирование */
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100px 100px 100px;
 	grid-gap: 20px; /* Отступы между элементами */
 	background-color: white; /* Фон inner */
 	padding: 20px; /* Внутренний отступ */
@@ -66,12 +68,32 @@ details img {
 	box-sizing: border-box; /* Учитываем отступы и границы */
 }
 
-
 .item {
 	text-align: center;
 	background-color: white; /* Белый фон для item */
 	border-radius: 8px;
-	padding: 20px; /* Внутренний отступ */
+	padding: 10px; /* Внутренний отступ */
+
+}
+
+.input-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.description {
+	margin-top: 10px;
+	font-size: 16px;
+	color: #333; /* Цвет текста для описания */
+}
+
+.img {
+	width: 20px; /* Устанавливаем ширину изображения */
+	height: auto; /* Автоматическая высота для сохранения пропорций */
+	display: block;
+	margin: 0 auto; /* Центрирование изображения */
 }
 
 .input-section {
@@ -97,22 +119,22 @@ details img {
 }
 
 .btn {
-    padding: 10px 15px;
-    border: none;
-    background: rgb(24, 248, 99);
-    border-radius: 8px;
-    color: rgb(0, 0, 0);
-    text-transform: uppercase;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    flex-shrink: 0; /* предотвращает сжатие кнопки */
+	margin-top: 10px;
+	padding: 10px 15px;
+	border: none;
+	background: rgba(241, 34, 34, 0.986);
+	border-radius: 8px;
+	color: rgb(0, 0, 0);
+	text-transform: uppercase;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background 0.3s ease;
 }
 
 .btn:hover {
-    background: whitesmoke;
+	background: rgb(70, 219, 40);
 }
 
 .btn:active {
-    background: #cccccc;
+	background: #cccccc;
 }
