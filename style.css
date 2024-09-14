@@ -3,7 +3,7 @@ body {
 	padding: 0;
 	font-size: 18px;
 	color: var(--tg-theme-text-color);
-	background: var(--tg-theme-bg-color);
+	background: rgb(33, 33, 33);
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -62,7 +62,7 @@ details img {
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 100px 100px 100px;
 	grid-gap: 20px; /* Отступы между элементами */
-	background-color: white; /* Фон inner */
+	background-color: rgb(33, 33, 33); /* Фон inner */
 	padding: 20px; /* Внутренний отступ */
 	border-radius: 8px; /* Закругленные углы */
 	box-sizing: border-box; /* Учитываем отступы и границы */
@@ -70,7 +70,7 @@ details img {
 
 .item {
 	text-align: center;
-	background-color: white; /* Белый фон для item */
+	background-color: rgb(33, 33, 33); /* Белый фон для item */
 	border-radius: 8px;
 	padding: 10px; /* Внутренний отступ */
 
@@ -86,7 +86,7 @@ details img {
 .description {
 	margin-top: 10px;
 	font-size: 16px;
-	color: #333; /* Цвет текста для описания */
+	color: #ffffff; /* Цвет текста для описания */
 }
 
 .img {
