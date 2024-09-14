@@ -18,6 +18,10 @@
 			<a href="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i">
 				<img id="recentlyPlayedImg" src="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&width=500" alt="Spotify recently played"></a>
 		</details>
+		<details>
+			<summary class="title">Карта повітрянної тривоги</summary>
+			<iframe id="alertsIframe" src="https://alerts.in.ua" width="500" height="500" style="border: none;"></iframe>
+		</details>
 	</div>
 	<div class="inner">
 		<div class="item">
@@ -77,5 +81,13 @@
 		// Устанавливаем интервал на 15 секунд (15000 миллисекунд)
 		setInterval(updateContent, 15000);
 	</script>
+	<script>
+    function updateAlertIframe() {
+        const alertsIframe = document.getElementById('alertsIframe');
+        alertsIframe.src = "https://alerts.in.ua?time=" + new Date().getTime();
+    }
+    // Обновление iframe каждые 3 минуты
+    setInterval(updateAlertIframe, 180000 );
+</script>
 </body>
 </html>
