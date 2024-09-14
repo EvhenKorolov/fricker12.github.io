@@ -1,26 +1,30 @@
-// Инициализация объекта Telegram Web App
 let tg = window.Telegram.WebApp;
+tg.showAlert(`Привіт, @${tg.user.username}.`);
 
 // Развернуть приложение на полный экран
 tg.expand();
 
-// Установка цвета текста кнопки MainButton
-tg.MainButton.textColor = "#FFFFFF";  // Белый текст
-// Установка цвета фона кнопки MainButton
+// Установка цвета текста и фона кнопки MainButton
+tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = '#2cab37';
 
-// Получаем элементы HTML по их идентификаторам
+// Получаем элементы HTML
 let sendLinkBtn = document.getElementById("sendLinkBtn");
 let linkInput = document.getElementById("linkInput");
 
 // Добавляем событие клика для кнопки отправки
 sendLinkBtn.addEventListener("click", function() {
-    // Проверка, видна ли MainButton в данный момент
+    // Проверка на пустую ссылку
+    const link = linkInput.value.trim();
+    if (link === '') {
+        alert('Введите ссылку');
+        return;
+    }
+
+    // Проверяем видимость MainButton
     if (tg.MainButton.isVisible) {
-        // Если видна, скрываем кнопку
         tg.MainButton.hide();
     } else {
-        // Если не видна, устанавливаем текст и показываем кнопку
         tg.MainButton.setText("Отправить");
         tg.MainButton.show();
     }
@@ -28,18 +32,20 @@ sendLinkBtn.addEventListener("click", function() {
 
 // Обработчик события нажатия на MainButton
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
-    // Отправляем данные, введенные в поле linkInput
-    // sendData принимает строку, поэтому передаем значение из поля
-    tg.sendData(linkInput.value);
+    const link = linkInput.value.trim();
+
+    // Проверка на пустую ссылку перед отправкой
+    if (link !== '') {
+        // Отправляем данные в бота
+        tg.sendData(link);
+    } else {
+        tg.showAlert("Пожалуйста, введите ссылку.");
+    }
 });
 
-// Пример кнопки, которая также может показать MainButton
-//let btn = document.getElementById("btn");
-//btn.addEventListener("click", function() {
-//   // Устанавливаем новый текст для MainButton
-//    tg.MainButton.setText("Сообщение отправлено!");
-//   // Показываем MainButton
-//    tg.MainButton.show();
-//    // Отправляем тестовые данные
-//    tg.sendData("sendTestMessage");
-//});
+Telegram.WebApp.onEvent("webAppReceiveData", function(data) {
+    const resultBlock = document.getElementById("resultBlock");
+
+    // Вставляем полученные данные в блок resultBlock
+    resultBlock.innerHTML = data;
+});
