@@ -7,37 +7,29 @@ tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = '#2cab37';
 
-// Получаем элементы HTML
-let sendLinkBtn = document.getElementById("sendLinkBtn");
-let linkInput = document.getElementById("linkInput");
+let item = "";
 
-sendLinkBtn.addEventListener("click", function(){
-    const link = linkInput.value
+let btn1 = document.getElementById("btn1");
+let btn2 = document.getElementById("btn2");
+let btn3 = document.getElementById("btn3");
+let btn4 = document.getElementById("btn4");
+let btn5 = document.getElementById("btn5");
+let btn6 = document.getElementById("btn6");
+
+btn1.addEventListener("click", function(){
 	if (tg.MainButton.isVisible) {
 		tg.MainButton.hide();
 	}
 	else {
-		tg.MainButton.setText("Отправить");
+		tg.MainButton.setText("Вы выбрали жертву №1!");
+		item = "1";
 		tg.MainButton.show();
 	}
 });
-// Обработчик события нажатия на MainButton
-Telegram.WebApp.onEvent("mainButtonClicked", function() {
-    const link = linkInput.value.trim();
 
-    // Проверка на пустую ссылку перед отправкой
-    if (link !== '') {
-        // Отправляем данные в бота
-        tg.sendData(link);
-    } else {
-        tg.showAlert("Пожалуйста, введите ссылку.");
-    }
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+	tg.sendData(item);
 });
 
-// Обработчик получения данных от бота
-Telegram.WebApp.onEvent("webAppReceiveData", function(data) {
-    const resultBlock = document.getElementById("resultBlock");
 
-    // Вставляем полученные данные в блок resultBlock
-    resultBlock.innerHTML = data;
-});
+
