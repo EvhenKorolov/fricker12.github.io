@@ -10,13 +10,12 @@ tg.MainButton.color = '#2cab37';
 let user = tg.initDataUnsafe.user;
 
 if (user) {
-    // Приветственное сообщение
-    let greetingMessage = `Привіт, ${user.first_name} ${user.last_name}!.`;
-    // Добавляем это сообщение на страницу
-    let greetingElement = document.createElement("p");
-    greetingElement.textContent = greetingMessage;
-    greetingElement.classList.add("greeting-message");  // Добавляем класс для стилей
-    document.body.prepend(greetingElement);
+    tg.showAlert({
+        text: `Привіт, ${user.first_name} ${user.last_name}!`,
+        buttons: [
+            { text: 'OK', action: () => tg.closeAlert() }
+        ]
+    });
 }
 
 let item = "";
