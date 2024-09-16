@@ -9,14 +9,17 @@ tg.MainButton.color = '#2cab37';
 
 let user = tg.initDataUnsafe.user;
 
-if (user) {
-    tg.showAlert({
-        text: `Привіт, ${user.first_name} ${user.last_name}!`,
-        buttons: [
-            { text: 'OK', action: () => tg.closeAlert() }
-        ]
-    });
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const userInfoElement = document.createElement('div');
+    userInfoElement.textContent = `Привіт, ${user.first_name} ${user.last_name}!`;
+    userInfoElement.style.position = 'absolute';
+    userInfoElement.style.top = '10px'; // Отступ от верхнего края
+    userInfoElement.style.left = '50%';  // Позиционирование по горизонтали
+    userInfoElement.style.transform = 'translateX(-50%)'; // Центрирование по горизонтали
+    userInfoElement.style.color = '#000';  // Цвет текста можно изменить
+    userInfoElement.style.fontSize = '18px';  // Размер шрифта (опционально)
+    document.body.appendChild(userInfoElement);
+});
 
 let item = "";
 
