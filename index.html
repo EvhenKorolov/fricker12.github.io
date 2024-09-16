@@ -74,27 +74,6 @@
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 	<script src="app.js"></script>
 	<script>
-		// Ждем полной загрузки DOM
-		document.addEventListener("DOMContentLoaded", function () {
-			// Инициализация объекта WebApp
-			let tg = window.Telegram.WebApp;
-			// Проверяем, есть ли данные пользователя
-			let user = tg.initDataUnsafe ? tg.initDataUnsafe.user : null;
-
-			if (user) {
-				// Создаем приветственное сообщение
-				let greetingMessage = document.createElement("h2");
-				greetingMessage.textContent = `Привіт, ${user.first_name} ${user.last_name}!`;
-				greetingMessage.classList.add("greeting-message");
-
-				// Вставляем приветственное сообщение в контейнер
-				let container = document.querySelector(".container");
-				let titleElement = document.querySelector(".title");
-				container.insertBefore(greetingMessage, titleElement);
-			}
-		});
-	</script>
-	<script>
 		// Функция для обновления содержимого блока
 		function updateContent() {
 			// Обновление изображения профиля
