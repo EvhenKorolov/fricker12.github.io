@@ -1,15 +1,10 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-size: 18px;
-    color: var(--tg-theme-text-color);
-    background: rgb(33, 33, 33);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Добавлено для центрирования */
-    display: flex;  /* Включаем Flexbox */
-    justify-content: center;  /* Центрирование по горизонтали */
-    align-items: center;  /* Центрирование по вертикали */
-    height: 100vh;  /* Задаем высоту на всю страницу */
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	color: var(--tg-theme-text-color);
+	background: rgb(33, 33, 33);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
@@ -44,19 +39,6 @@ details img {
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Легкая тень для текста */
-}
-
-.greeting-message {
-    font-size: 12px;
-    color: white;
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;  /* Центрирование текста */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Легкая тень для текста */
-    width: 100%;  /* Это гарантирует, что элемент занимает всю ширину */
-    max-width: 600px;  /* Ограничение ширины */
 }
 
 /* Анимация плавного появления */
