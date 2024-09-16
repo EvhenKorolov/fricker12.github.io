@@ -10,7 +10,7 @@ tg.MainButton.color = '#2cab37';
 let user = tg.initDataUnsafe.user;
 let usercard = document.getElementById("usercard");
 let p = document.createElement("p");
-p.innerText = `Привіт, ${user.first_name} ${user.last_name} Premium(${user.is_premium})!`;
+p.innerText = `Привіт, ${user.first_name} ${user.last_name} Premium(${user.is_premium})`;
 usercard.appendChild(p);
 
 let item = "";
