@@ -8,11 +8,7 @@ let user = tg.initDataUnsafe.user;
 
 if (user) {
     // Приветственное сообщение
-    let greetingMessage = `Привет, ${user.first_name}! Добро пожаловать в наше приложение.`;
-    if (user.last_name) {
-        greetingMessage += ` Ваша фамилия: ${user.last_name}.`;
-    }
-
+    let greetingMessage = `Привіт, ${user.first_name} ${user.last_name}!.`;
     // Добавляем это сообщение на страницу
     let greetingElement = document.createElement("p");
     greetingElement.textContent = greetingMessage;
