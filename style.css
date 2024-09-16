@@ -26,7 +26,7 @@ details {
 	box-sizing: border-box; /* Учитываем отступы и границы */
 }
 
-details img iframe {
+details img {
 	width: 100%; /* Ограничиваем изображение внутри details по ширине контейнера */
 	height: auto; /* Сохраняем пропорции */
 }
