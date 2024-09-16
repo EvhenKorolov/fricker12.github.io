@@ -26,9 +26,25 @@ buttons.forEach((button, index) => {
     });
 });
 
+// Обработчик клика по MainButton
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     tg.sendData(item);
 });
 
+// Показать кнопку BackButton
+tg.BackButton.show();
 
+// Обработка события нажатия на BackButton
+Telegram.WebApp.onEvent("backButtonClicked", function(){
+    console.log("Нажата кнопка Назад");
+    tg.BackButton.hide();  // Опционально, скрыть кнопку после нажатия
+});
 
+// Показать кнопку SettingsButton
+tg.SettingsButton.show();
+
+// Обработка события нажатия на SettingsButton
+Telegram.WebApp.onEvent("settingsButtonClicked", function(){
+    console.log("Нажата кнопка Настройки");
+    // Здесь можно реализовать нужную логику для открытия настроек
+});
