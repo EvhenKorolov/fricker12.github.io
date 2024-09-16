@@ -9,6 +9,7 @@
 <body>
 
 	<div class="container">
+		<!-- Приветственное сообщение будет вставлено здесь через JavaScript -->
 		<h2 class="title">Адмін зараз слухає на Spotify</h2>
 		<a href="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&redirect=true][https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover">
 			<img id="profileImg" src="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&redirect=true][https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover" alt="Spotify Profile">
@@ -16,7 +17,7 @@
 		<details>
 			<summary class="title">Останнє прослухане</summary>
 			<a href="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i">
-				<img id="recentlyPlayedImg" src="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&width=500&count=10" alt="Spotify recently played"></a>
+				<img id="recentlyPlayedImg" src="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&width=500" alt="Spotify recently played"></a>
 		</details>
 		<details>
 			<summary class="title">Карта повітрянної тривоги</summary>
@@ -72,6 +73,27 @@
 
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 	<script src="app.js"></script>
+	<script>
+		// Пример кода для добавления приветственного сообщения
+		let tg = window.Telegram.WebApp;
+
+		// Проверяем, есть ли информация о пользователе
+		let user = tg.initDataUnsafe.user;
+
+		if (user) {
+			// Создаем новый элемент <h2>
+			let greetingMessage = document.createElement("h2");
+			greetingMessage.textContent = `Привіт, ${user.first_name} ${user.last_name}!`;
+
+			// Добавляем класс "title" для стилей
+			greetingMessage.classList.add("title");
+
+			// Вставляем приветственное сообщение перед существующим заголовком "Адмін зараз слухає на Spotify"
+			let container = document.querySelector(".container");
+			let titleElement = document.querySelector(".title");
+			container.insertBefore(greetingMessage, titleElement);
+		}
+	</script>
 	<script>
 		// Функция для обновления содержимого блока
 		function updateContent() {
