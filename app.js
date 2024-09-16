@@ -37,19 +37,19 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 });
 
 // Показать кнопку BackButton
-tg.BackButton.show();
+//tg.BackButton.show();
 
 // Обработка события нажатия на BackButton
-Telegram.WebApp.onEvent("backButtonClicked", function(){
-    window.history.back();
-    tg.BackButton.hide();  // Опционально, скрыть кнопку после нажатия
-});
+//Telegram.WebApp.onEvent("backButtonClicked", function(){
+//    window.history.back();
+//   tg.BackButton.hide();  // Опционально, скрыть кнопку после нажатия
+//});
 
 // Показать кнопку SettingsButton
-tg.SettingsButton.show();
+//tg.SettingsButton.show();
 
 // Обработка события нажатия на SettingsButton
-Telegram.WebApp.onEvent("settingsButtonClicked", function(){
-    console.log("Нажата кнопка Настройки");
-    // Здесь можно реализовать нужную логику для открытия настроек
-});
+//Telegram.WebApp.onEvent("settingsButtonClicked", function(){
+//    console.log("Нажата кнопка Настройки");
+//    // Здесь можно реализовать нужную логику для открытия настроек
+//});
