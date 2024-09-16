@@ -6,6 +6,12 @@ tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = '#2cab37';
 
+let user = tg.initDataUnsafe.user;
+let usercard = document.getElementById("usercard");
+let p = document.createElement("p");
+p.innerText = `Привіт, ${user.first_name} ${user.last_name} Premium(${user.is_premium})`;
+usercard.appendChild(p);
+
 let item = "";
 // Массив с кнопками
 let buttons = document.querySelectorAll(".btn");  // Предположим, что у всех кнопок есть класс 'btn'
@@ -29,11 +35,6 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
     tg.sendData(item);
 });
 
-let user = tg.initDataUnsafe.user;
-let usercard = document.getElementById("usercard");
-let p = document.createElement("p");
-p.innerText = `Привіт, ${user.first_name} ${user.last_name} Premium(${user.is_premium})`;
-usercard.appendChild(p);
 
 // Показать кнопку BackButton
 //tg.BackButton.show();
