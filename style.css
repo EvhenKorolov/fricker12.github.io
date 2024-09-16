@@ -46,6 +46,7 @@ details img {
 	color: white;
 	margin-bottom: 10px;
 	font-family: 'Montserrat', sans-serif;
+	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Легкая тень для текста */
