@@ -21,7 +21,7 @@
 		</details>
 		<details>
 			<summary class="title">Карта повітрянної тривоги</summary>
-			<iframe id="alertsIframe" src="https://alerts.in.ua" width="350" height="400" style="border: none;"></iframe>
+			<iframe id="alertsIframe" src="https://alerts.in.ua" width="350" height="300" style="border: none;"></iframe>
 		</details>
 
 		<details>
@@ -86,7 +86,7 @@
 			greetingMessage.textContent = `Привіт, ${user.first_name} ${user.last_name}!`;
 
 			// Добавляем класс "title" для стилей
-			greetingMessage.classList.add("title");
+			greetingMessage.classList.add("greeting-message");
 
 			// Вставляем приветственное сообщение перед существующим заголовком "Адмін зараз слухає на Spotify"
 			let container = document.querySelector(".container");
