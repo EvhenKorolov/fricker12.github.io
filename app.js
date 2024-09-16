@@ -36,7 +36,7 @@ tg.BackButton.show();
 
 // Обработка события нажатия на BackButton
 Telegram.WebApp.onEvent("backButtonClicked", function(){
-    console.log("Нажата кнопка Назад");
+    window.history.back();
     tg.BackButton.hide();  // Опционально, скрыть кнопку после нажатия
 });
 
