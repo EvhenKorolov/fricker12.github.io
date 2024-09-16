@@ -12,6 +12,7 @@ if (user) {
     // Добавляем это сообщение на страницу
     let greetingElement = document.createElement("p");
     greetingElement.textContent = greetingMessage;
+    greetingElement.classList.add("greeting-message");  // Добавляем класс для стилей
     document.body.prepend(greetingElement);
 }
 
