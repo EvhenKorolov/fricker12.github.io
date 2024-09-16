@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 18px;
+	justify-content: center;
 	color: var(--tg-theme-text-color);
 	background: rgb(33, 33, 33);
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
