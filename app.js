@@ -8,28 +8,12 @@ tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = '#2cab37';
 
 let user = tg.initDataUnsafe.user;
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Найти контейнер
-    const container = document.querySelector('.container');
-    if (container) {
-        const userInfoElement = document.createElement('div');
-        userInfoElement.textContent = `Привіт, ${user.first_name} ${user.last_name}!`;
-        userInfoElement.style.textAlign = 'center'; // Центрирование текста
-        userInfoElement.style.color = '#000';  // Цвет текста можно изменить
-        userInfoElement.style.fontSize = '18px';  // Размер шрифта (опционально)
-        container.style.display = 'flex'; // Использование flexbox для центрирования
-        container.style.justifyContent = 'center'; // Центрирование по горизонтали
-        container.style.alignItems = 'center'; // Центрирование по вертикали (опционально)
-        container.style.height = '100vh'; // Устанавливаем высоту контейнера (опционально)
-        container.appendChild(userInfoElement);
-    } else {
-        console.error('Контейнер с классом "container" не найден');
-    }
-});
+let usercard = document.getElementById("usercard");
+let p = document.createElement("p");
+p.innerText = `Привіт, ${user.first_name} ${user.last_name}!`;
+usercard.appendChild(p);
 
 let item = "";
-
 // Массив с кнопками
 let buttons = document.querySelectorAll(".btn");  // Предположим, что у всех кнопок есть класс 'btn'
 
