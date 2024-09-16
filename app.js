@@ -7,7 +7,7 @@ tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = '#2cab37';
 
-let user = tg.initDataUnsafe ? tg.initDataUnsafe.user : null;
+let user = tg.initDataUnsafe.user;
 
 if (user) {
     // Создаем приветственное сообщение
