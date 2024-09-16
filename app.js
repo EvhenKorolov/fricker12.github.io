@@ -7,6 +7,20 @@ tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = '#2cab37';
 
+let user = tg.initDataUnsafe ? tg.initDataUnsafe.user : null;
+
+if (user) {
+    // Создаем приветственное сообщение
+	let greetingMessage = document.createElement("h2");
+	greetingMessage.textContent = `Привіт, ${user.first_name} ${user.last_name}!`;
+	greetingMessage.classList.add("greeting-message");
+
+	// Вставляем приветственное сообщение в контейнер
+	let container = document.querySelector(".container");
+	let titleElement = document.querySelector(".title");
+	container.insertBefore(greetingMessage, titleElement);
+}
+
 let item = "";
 
 // Массив с кнопками
