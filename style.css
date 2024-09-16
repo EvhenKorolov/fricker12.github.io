@@ -1,11 +1,15 @@
 body {
-	margin: 0;
-	padding: 0;
-	font-size: 18px;
-	justify-content: center;
-	color: var(--tg-theme-text-color);
-	background: rgb(33, 33, 33);
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    color: var(--tg-theme-text-color);
+    background: rgb(33, 33, 33);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Добавлено для центрирования */
+    display: flex;  /* Включаем Flexbox */
+    justify-content: center;  /* Центрирование по горизонтали */
+    align-items: center;  /* Центрирование по вертикали */
+    height: 100vh;  /* Задаем высоту на всю страницу */
 }
 
 .container {
