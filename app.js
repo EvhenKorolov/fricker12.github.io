@@ -1,4 +1,5 @@
 let tg = window.Telegram.WebApp;
+let user = tg.initDataUnsafe.user;
 
 // Развернуть приложение на полный экран
 tg.expand();
@@ -7,7 +8,6 @@ tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = '#2cab37';
 
-let user = tg.initDataUnsafe.user;
 let usercard = document.getElementById("usercard");
 let p = document.createElement("p");
 p.innerText = `Привіт, ${user.first_name} ${user.last_name} Premium(${user.is_premium})`;
