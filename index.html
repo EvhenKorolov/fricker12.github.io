@@ -7,7 +7,6 @@
 	<title>Telegram Web App</title>
 </head>
 <body>
-
 	<div class="container">
 		<!-- Приветственное сообщение будет вставлено здесь через JavaScript -->
 		<h2 class="title">Адмін зараз слухає на Spotify</h2>
@@ -17,7 +16,8 @@
 		<details>
 			<summary class="title">Останнє прослухане</summary>
 			<a href="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i">
-				<img id="recentlyPlayedImg" src="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&width=500" alt="Spotify recently played"></a>
+				<img id="recentlyPlayedImg" src="https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&width=500" alt="Spotify recently played">
+			</a>
 		</details>
 		<details>
 			<summary class="title">Карта повітрянної тривоги</summary>
@@ -74,25 +74,25 @@
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 	<script src="app.js"></script>
 	<script>
-		// Пример кода для добавления приветственного сообщения
-		let tg = window.Telegram.WebApp;
+		// Ждем полной загрузки DOM
+		document.addEventListener("DOMContentLoaded", function () {
+			// Инициализация объекта WebApp
+			let tg = window.Telegram.WebApp;
+			// Проверяем, есть ли данные пользователя
+			let user = tg.initDataUnsafe ? tg.initDataUnsafe.user : null;
 
-		// Проверяем, есть ли информация о пользователе
-		let user = tg.initDataUnsafe.user;
+			if (user) {
+				// Создаем приветственное сообщение
+				let greetingMessage = document.createElement("h2");
+				greetingMessage.textContent = `Привіт, ${user.first_name} ${user.last_name}!`;
+				greetingMessage.classList.add("greeting-message");
 
-		if (user) {
-			// Создаем новый элемент <h2>
-			let greetingMessage = document.createElement("h2");
-			greetingMessage.textContent = `Привіт, ${user.first_name} ${user.last_name}!`;
-
-			// Добавляем класс "title" для стилей
-			greetingMessage.classList.add("greeting-message");
-
-			// Вставляем приветственное сообщение перед существующим заголовком "Адмін зараз слухає на Spotify"
-			let container = document.querySelector(".container");
-			let titleElement = document.querySelector(".title");
-			container.insertBefore(greetingMessage, titleElement);
-		}
+				// Вставляем приветственное сообщение в контейнер
+				let container = document.querySelector(".container");
+				let titleElement = document.querySelector(".title");
+				container.insertBefore(greetingMessage, titleElement);
+			}
+		});
 	</script>
 	<script>
 		// Функция для обновления содержимого блока
@@ -108,12 +108,13 @@
 		setInterval(updateContent, 15000);
 	</script>
 	<script>
-    function updateAlertIframe() {
-        const alertsIframe = document.getElementById('alertsIframe');
-        alertsIframe.src = "https://alerts.in.ua?time=" + new Date().getTime();
-    }
-    // Обновление iframe каждые 3 минуты
-    setInterval(updateAlertIframe, 180000 );
-</script>
+		// Функция для обновления карты тревог
+		function updateAlertIframe() {
+			const alertsIframe = document.getElementById('alertsIframe');
+			alertsIframe.src = "https://alerts.in.ua?time=" + new Date().getTime();
+		}
+		// Обновление iframe каждые 3 минуты
+		setInterval(updateAlertIframe, 180000);
+	</script>
 </body>
 </html>
