@@ -32,9 +32,19 @@ buttons.forEach((button, index) => {
 
 // Обработчик клика по MainButton
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
+   try {
     tg.sendData(item);
+    tg.MainButton.setText("Данные отправлены!");  // Обновляем текст после отправки
+} catch (error) {
+    console.error("Ошибка отправки данных: ", error);
+    alert("Не удалось отправить данные. Попробуйте снова.");
+}
 });
 
+// Скрыть кнопку, если пользователь снова нажимает
+tg.MainButton.onClick(function() {
+    tg.MainButton.hide();
+});
 
 // Показать кнопку BackButton
 //tg.BackButton.show();
