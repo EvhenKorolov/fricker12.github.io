@@ -6,6 +6,7 @@ tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = '#2cab37';
 
+// Получение информации о пользователе из initDataUnsafe
 let user = tg.initDataUnsafe.user;
 let usercard = document.getElementById("usercard");
 let p = document.createElement("p");
@@ -32,34 +33,24 @@ buttons.forEach((button, index) => {
 
 // Обработчик клика по MainButton
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
-   try {
-    tg.sendData(item);
-    tg.MainButton.setText("Данные отправлены!");  // Обновляем текст после отправки
-} catch (error) {
-    console.error("Ошибка отправки данных: ", error);
-    alert("Не удалось отправить данные. Попробуйте снова.");
-}
+    try {
+        // Создаем объект с данными для отправки
+        let dataToSend = {
+            selectedItem: item,  // Данные о нажатой кнопке
+            initData: tg.initData // Полный initData для валидации
+        };
+        
+        // Отправка данных в бот
+        tg.sendData(JSON.stringify(dataToSend));
+        
+        tg.MainButton.setText("Данные отправлены!");  // Обновляем текст после отправки
+    } catch (error) {
+        console.error("Ошибка отправки данных: ", error);
+        alert("Не удалось отправить данные. Попробуйте снова.");
+    }
 });
 
 // Скрыть кнопку, если пользователь снова нажимает
 tg.MainButton.onClick(function() {
     tg.MainButton.hide();
 });
-
-// Показать кнопку BackButton
-//tg.BackButton.show();
-
-// Обработка события нажатия на BackButton
-//Telegram.WebApp.onEvent("backButtonClicked", function(){
-//    window.history.back();
-//   tg.BackButton.hide();  // Опционально, скрыть кнопку после нажатия
-//});
-
-// Показать кнопку SettingsButton
-//tg.SettingsButton.show();
-
-// Обработка события нажатия на SettingsButton
-//Telegram.WebApp.onEvent("settingsButtonClicked", function(){
-//    console.log("Нажата кнопка Настройки");
-//    // Здесь можно реализовать нужную логику для открытия настроек
-//});
