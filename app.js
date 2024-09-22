@@ -19,21 +19,25 @@ if (user) {
 }
 
 let item = "";
+let isMainButtonVisible = false;
 
 // Массив с кнопками
 let buttons = document.querySelectorAll(".btn");  // Предположим, что у всех кнопок есть класс 'btn'
 
 // Цикл для назначения обработчиков
 buttons.forEach((button, index) => {
-    button.addEventListener("click", function(){
-        if (tg.MainButton.isVisible) {
+    button.addEventListener("click", function() {
+        let buttonNumber = index + 1;
+        tg.MainButton.setText(`Вы выбрали жертву №${buttonNumber}!`);
+        item = buttonNumber.toString();
+
+        if (isMainButtonVisible) {
             tg.MainButton.hide();
         } else {
-            let buttonNumber = index + 1;
-            tg.MainButton.setText(`Вы выбрали жертву №${buttonNumber}!`);
-            item = buttonNumber.toString();
             tg.MainButton.show();  // Показываем MainButton
         }
+
+        isMainButtonVisible = !isMainButtonVisible;  // Обновляем состояние
     });
 });
 
