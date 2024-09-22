@@ -78,7 +78,7 @@
 	            window.Telegram.WebApp.ready();
 	            const user = window.Telegram.WebApp.initDataUnsafe?.user;
 	            if (user) {
-	                document.getElementById('usercard').innerText = `Привет, ${user.first_name}!`;
+	                document.getElementById('usercard').innerText = `Привіт, ${user.first_name} ${user.last_name} Premium(${user.is_premium})`;
 	            } else {
 	                document.getElementById('usercard').innerText = 'Пользователь не авторизован';
 	            }
