@@ -55,8 +55,3 @@ tg.onEvent("mainButtonClicked", function(){
         alert("Не удалось отправить данные. Попробуйте снова.");
     }
 });
-
-// Убедитесь, что событие клика работает корректно и MainButton скрывается при повторном клике
-tg.MainButton.onClick(function() {
-    tg.MainButton.hide();
-});
