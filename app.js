@@ -1,4 +1,5 @@
 let tg = window.Telegram.WebApp;
+
 // Развернуть приложение на полный экран
 tg.expand();
 
@@ -7,13 +8,18 @@ tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = '#2cab37';
 
 // Получение информации о пользователе из initDataUnsafe
-let user = tg.initDataUnsafe.user;
+let user = tg.initDataUnsafe?.user;
 let usercard = document.getElementById("usercard");
-let p = document.createElement("p");
-p.innerText = `Привіт, ${user.first_name} ${user.last_name} Premium(${user.is_premium})`;
-usercard.appendChild(p);
+if (user) {
+    let p = document.createElement("p");
+    p.innerText = `Привіт, ${user.first_name} ${user.last_name} Premium(${user.is_premium})`;
+    usercard.appendChild(p);
+} else {
+    console.error("Пользователь не найден");
+}
 
 let item = "";
+
 // Массив с кнопками
 let buttons = document.querySelectorAll(".btn");  // Предположим, что у всех кнопок есть класс 'btn'
 
@@ -26,13 +32,13 @@ buttons.forEach((button, index) => {
             let buttonNumber = index + 1;
             tg.MainButton.setText(`Вы выбрали жертву №${buttonNumber}!`);
             item = buttonNumber.toString();
-            tg.MainButton.show();
+            tg.MainButton.show();  // Показываем MainButton
         }
     });
 });
 
 // Обработчик клика по MainButton
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
+tg.onEvent("mainButtonClicked", function(){
     try {
         // Создаем объект с данными для отправки
         let dataToSend = {
@@ -50,7 +56,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
     }
 });
 
-// Скрыть кнопку, если пользователь снова нажимает
+// Убедитесь, что событие клика работает корректно и MainButton скрывается при повторном клике
 tg.MainButton.onClick(function() {
     tg.MainButton.hide();
 });
