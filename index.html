@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +12,8 @@
 	<div class="container">
 		<h1 class="title" id="usercard"></h1>
 		<h2 class="title">Адмін зараз слухає на Spotify</h2>
-		<a href="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&redirect=true][https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover">
-			<img id="profileImg" src="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&redirect=true][https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover" alt="Spotify Profile">
+		<a href="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&redirect=true">
+    			<img id="profileImg" src="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover" alt="Spotify Profile">
 		</a>
 		<details>
 			<summary class="title">Останнє прослухане</summary>
@@ -72,29 +72,29 @@
 			</div>
 		</details>
 	</div>
+	<!-- Скрипт для Telegram SDK -->
 	<script>
-		window.Telegram.WebApp.ready();  // Сообщает Telegram, что приложение готово к использованию
-		// Вы можете взаимодействовать с Telegram API здесь
-		const user = window.Telegram.WebApp.initDataUnsafe?.user;
-		if (user) {
-			console.log(`Пользователь: ${user.first_name}`);
-		} else {
-		        console.log('Пользователь не авторизован');
-		    }
+		window.onload = function() {
+	            window.Telegram.WebApp.ready();
+	            const user = window.Telegram.WebApp.initDataUnsafe?.user;
+	            if (user) {
+	                document.getElementById('usercard').innerText = `Привет, ${user.first_name}!`;
+	            } else {
+	                document.getElementById('usercard').innerText = 'Пользователь не авторизован';
+	            }
+	        };
 	</script>
-	<script>
-		// Функция для обновления содержимого блока
+	<!-- Скрипт для обновления содержимого -->
+    	<script>
 		function updateContent() {
-			// Обновление изображения профиля
-			const profileImg = document.getElementById('profileImg');
-			profileImg.src = "https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&redirect=true][https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover&" + new Date().getTime();
-
-			const recentlyPlayedImg = document.getElementById('recentlyPlayedImg');
-			recentlyPlayedImg.src = "https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&width=500&" + new Date().getTime();
-		}
-		// Устанавливаем интервал на 15 секунд (15000 миллисекунд)
-		setInterval(updateContent, 15000);
-	</script>
+	            const profileImg = document.getElementById('profileImg');
+	            profileImg.src = "https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&bar_color=53b14f&bar_color_cover&" + new Date().getTime();
+	
+	            const recentlyPlayedImg = document.getElementById('recentlyPlayedImg');
+	            recentlyPlayedImg.src = "https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&width=500&" + new Date().getTime();
+	        }
+	        setInterval(updateContent, 15000);
+    	</script>
 	<script>
 		// Функция для обновления карты тревог
 		function updateAlertIframe() {
