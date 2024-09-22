@@ -61,10 +61,10 @@ tg.onEvent("mainButtonClicked", function(){
 });
 
 // Обработчик для кнопки BackButton
-tg.onEvent("backButtonClicked", function() {
+//tg.onEvent("backButtonClicked", function() {
     // Логика для возврата на предыдущую страницу
-    window.history.back();
-});
+//    window.history.back();
+//});
 
 // Отображение кнопки BackButton
-tg.BackButton.show();
+//tg.BackButton.show();
