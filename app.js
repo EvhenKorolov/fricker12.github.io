@@ -59,3 +59,12 @@ tg.onEvent("mainButtonClicked", function(){
         alert("Не удалось отправить данные. Попробуйте снова.");
     }
 });
+
+// Обработчик для кнопки BackButton
+tg.onEvent("backButtonClicked", function() {
+    // Логика для возврата на предыдущую страницу
+    window.history.back();
+});
+
+// Отображение кнопки BackButton
+tg.BackButton.show();
