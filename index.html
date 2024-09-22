@@ -11,8 +11,8 @@
 	<div class="container">
 		<h1 class="title" id="usercard"></h1>
 		<h2 class="title">Адмін зараз слухає на Spotify</h2>
-		<a href="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=false&bar_color=53b14f&bar_color_cover=true">
-    			<img id="profileImg" src="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover" alt="Spotify Profile">
+		<a href="https://spotify-github-profile.kittinanx.com/api/view?uid=21f6yy7o4zdnzdffahkzebd6i&redirect=true">
+			<img id="profileImg" src="https://spotify-github-profile.kittinanx.com/api/view?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=false" alt="Spotify Profile">
 		</a>
 		<details>
 			<summary class="title">Останнє прослухане</summary>
@@ -75,26 +75,25 @@
 	<!-- Скрипт для Telegram SDK -->
 	<script>
 		window.onload = function() {
-	            window.Telegram.WebApp.ready();
-	            const user = window.Telegram.WebApp.initDataUnsafe?.user;
-	            if (user) {
-	                document.getElementById('usercard').innerText = `Привіт, ${user.first_name} ${user.last_name} Premium(${user.is_premium})`;
-	            } else {
-	                document.getElementById('usercard').innerText = 'Пользователь не авторизован';
-	            }
-	        };
+			window.Telegram.WebApp.ready();
+			const user = window.Telegram.WebApp.initDataUnsafe?.user;
+			if (user) {
+				document.getElementById('usercard').innerText = `Привіт, ${user.first_name} ${user.last_name} Premium(${user.is_premium})`;
+			} else {
+				document.getElementById('usercard').innerText = 'Пользователь не авторизован';
+			}
+		};
 	</script>
 	<!-- Скрипт для обновления содержимого -->
-    	<script>
-		function updateContent() {
-	            const profileImg = document.getElementById('profileImg');
-	            profileImg.src = "https://spotify-github-profile.kittinanx.com/api/view.svg?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&bar_color=53b14f&bar_color_cover&" + new Date().getTime();
-	
-	            const recentlyPlayedImg = document.getElementById('recentlyPlayedImg');
-	            recentlyPlayedImg.src = "https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&unique=true&count=10&width=500&" + new Date().getTime();
-	        }
-	        setInterval(updateContent, 15000);
-    	</script>
+    <script>
+	function updateContent() {
+		const profileImg = document.getElementById('profileImg');
+		profileImg.src = "https://spotify-github-profile.kittinanx.com/api/view?uid=21f6yy7o4zdnzdffahkzebd6i&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=false&" + new Date().getTime();
+		const recentlyPlayedImg = document.getElementById('recentlyPlayedImg');
+		recentlyPlayedImg.src = "https://spotify-recently-played-readme.vercel.app/api?user=21f6yy7o4zdnzdffahkzebd6i&unique=true&count=10&width=500&" + new Date().getTime();
+		}
+		setInterval(updateContent, 15000);
+		</script>
 	<script>
 		// Функция для обновления карты тревог
 		function updateAlertIframe() {
